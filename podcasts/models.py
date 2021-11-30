@@ -11,5 +11,5 @@ class Episode(models.Model):
     unique_attribute = models.CharField(max_length=50)
 
     def __str__(self) -> str:
-        return f'{self.podcast_name}: {title}'
+        return f'{self.podcast_name}: {self.title}'
 
