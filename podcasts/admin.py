@@ -5,5 +5,5 @@ from .models import Episode
 
 @admin.register(Episode)
 class EpisodeAdmin(admin.ModelAdmin):
-    list_display = ('podcast_name', 'title', 'publication_date', 'link', 'unique_attribute')
+    list_display = ('podcast_name', 'title', 'publication_date')
 
