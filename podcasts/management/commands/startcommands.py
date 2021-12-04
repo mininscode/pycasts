@@ -6,11 +6,8 @@ from django.core.management.base import BaseCommand
 from podcasts.models import Episode
 
 
-class Command(BaseCommand):
-    def handle(self, *args, **options):
-        if hasattr(ssl, '_create_unverified_context'):
-            ssl._create_default_https_context = ssl._create_unverified_context
-        feed = feedparser.parse("https://realpython.com/podcasts/rpp/feed")
+
+def save_new_episodes(feed):
         podcast_title = feed.channel.title
         podcast_image = feed.channel.image['href']
 
@@ -26,4 +23,24 @@ class Command(BaseCommand):
                     guid=item.guid,
                 )
                 episode.save()
+
+
+def add_realpython_episodes():
+        if hasattr(ssl, '_create_unverified_context'):
+            ssl._create_default_https_context = ssl._create_unverified_context
+        _feed = feedparser.parse("https://realpython.com/podcasts/rpp/feed")
+        save_new_episodes(_feed)
+
+
+def add_talkpython_episodes():
+        if hasattr(ssl, '_create_unverified_context'):
+            ssl._create_default_https_context = ssl._create_unverified_context
+        _feed = feedparser.parse("https://realpython.com/podcasts/rpp/feed")
+        save_new_episodes(_feed)
+
+
+class Command(BaseCommand):
+    def handle(self, *args, **options):
+        add_realpython_episodes()
+        add_talkpython_episodes()
 
