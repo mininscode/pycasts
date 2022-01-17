@@ -1,2 +1,2 @@
 # pycasts
-PET-project: content aggregator of python podcasts
+Content aggregator of python podcasts
