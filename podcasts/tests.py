@@ -9,11 +9,11 @@ class PodcastsTests(TestCase):
         self.episode = Episode.objects.create(
             title='My Awesome Podcast Episode',
             description='Look, I made it!',
-            pub_date='2018-11-20T15:58:44.767594-06:00',
+            publication_date='2018-11-20T15:58:44.767594-06:00',
             link='https://mypodcastsexampleapp.com',
             image='https://image.mypodcastsexampleapp.com',
             podcast_name='My Python Podcast',
-            guid='de194720-7b4c-49e2-a05f-432436d3fetr',
+            unique_attribute='de194720-7b4c-49e2-a05f-432436d3fetr',
         )
 
     def test_episode_content(self):
@@ -26,7 +26,7 @@ class PodcastsTests(TestCase):
             'Look, I made it!'
         )
         self.assertEqual(
-            self.episode.pub_date,
+            self.episode.publication_date,
             '2018-11-20T15:58:44.767594-06:00'
         )
         self.assertEqual(
@@ -42,7 +42,7 @@ class PodcastsTests(TestCase):
             'My Python Podcast'
         )
         self.assertEqual(
-            self.episode.guid,
+            self.episode.unique_attribute,
             'de194720-7b4c-49e2-a05f-432436d3fetr'
         )
 
