@@ -1,0 +1,9 @@
+default:
+    DEBUG: ""
+    SECRET_KEY: ""
+development:
+    DEBUG: True
+    SECRET_KEY: "xxx"
+production:
+    DEBUG: False
+    SECRET_KEY: "xxx"
